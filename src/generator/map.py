@@ -1,10 +1,5 @@
-import json
+from utils.json_func import get_json
 from os import path
-
-def get_json(path: str):
-    with open(path, 'r') as f:
-        data=json.loads(f.read())
-    return data
 
 class Map():
 
