@@ -74,15 +74,29 @@ class Map():
         elif direction == "RIGHT" and not (self.detect_collision("RIGHT")):
             self.player.move("RIGHT")
 
-    def detect_collision(self, direction: str):
+    def detect_player_and_wall_plate_collision(self, direction: str):
 
         if direction == "UP":
-            return self.grid[self.player.y-1][self.player.x] == 1
+            return self.grid[self.player.y-1][self.player.x] == 1 or self.grid[self.player.y-1][self.player.x] == 3
         elif direction == "DOWN":
-            return self.grid[self.player.y+1][self.player.x] == 1
+            return self.grid[self.player.y+1][self.player.x] == 1 or self.grid[self.player.y+1][self.player.x] == 3
         elif direction == "LEFT":
-            return self.grid[self.player.y][self.player.x-1] == 1
+            return self.grid[self.player.y][self.player.x-1] == 1 or self.grid[self.player.y][self.player.x-1] == 3
         elif direction == "RIGHT":
-            return self.grid[self.player.y][self.player.x+1] == 1
+            return self.grid[self.player.y][self.player.x+1] == 1 or self.grid[self.player.y][self.player.x+1] == 3
         else:
             raise ValueError("Invalid direction")
+        
+    def detect_player_and_block_collision(self, direction: str):
+            
+            if direction == "UP":
+                return self.grid[self.player.y-1][self.player.x] == 2
+            elif direction == "DOWN":
+                return self.grid[self.player.y+1][self.player.x] == 2
+            elif direction == "LEFT":
+                return self.grid[self.player.y][self.player.x-1] == 2
+            elif direction == "RIGHT":
+                return self.grid[self.player.y][self.player.x+1] == 2
+            else:
+                raise ValueError("Invalid direction")
+    
