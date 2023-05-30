@@ -23,8 +23,6 @@ class Map():
         for row in self.grid:
             print(row)
 
-first_map = Map("Easy")
+first_map = Map("Medium")
 
 first_map.print_map()
-
-# print(get_json(path.join(path.dirname(__file__), '..', '..', 'src', 'generator', 'base', 'obstacles.json'))['Easy'])
