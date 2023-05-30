@@ -38,7 +38,3 @@ class Map():
     def print_map(self):
         for row in self.grid:
             print(row)
-
-first_map = Map("Medium")
-
-first_map.print_map()
